@@ -1,4 +1,16 @@
+[project]
+name = "spleeter"
+version = "2.4.2"
+description = "The Deezer source separation library with pretrained models based on tensorflow."
+requires-python = ">=3.8,<3.12"
+readme = "README.md"
+license = { text = "MIT License" }
+authors = [{ name = "Deezer Research", email = "spleeter@deezer.com" }]
+homepage = "https://github.com/deezer/spleeter"
+
+
 [tool.poetry]
+
 name = "spleeter"
 version = "2.4.2"
 description = "The Deezer source separation library with pretrained models based on tensorflow."
@@ -39,20 +51,26 @@ classifiers = [
     "Topic :: Software Development",
     "Topic :: Software Development :: Libraries",
     "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Utilities"
+    "Topic :: Utilities",
 ]
-packages = [ { include = "spleeter" } ]
+packages = [{ include = "spleeter" }]
 include = ["LICENSE", "spleeter/resources/*.json"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.12"
+python = ">=3.8,<3.9"
 ffmpeg-python = "^0.2.0"
-httpx = {extras = ["http2"], version = "^0.19.0"}
+httpx = { extras = ["http2"], version = "^0.19.0" }
 typer = "^0.3.2"
-musdb = {version = "^0.4.0", optional = true}
-museval = {version = "^0.4.0", optional = true}
-tensorflow-io-gcs-filesystem = "0.32.0"
-tensorflow = "2.12.1"
+musdb = { version = "^0.4.0", optional = true }
+museval = { version = "^0.4.0", optional = true }
+tensorflow-io-gcs-filesystem = { version = "0.32.0", markers = "sys_platform != 'darwin' or platform_machine == 'x86_64'" }
+
+# Use upstream 'tensorflow' on platforms that have wheels (x86_64 Linux/Windows/macOS)
+tensorflow = { version = "==2.12.1", markers = "sys_platform != 'darwin' or platform_machine == 'x86_64'" }
+
+# On Apple Silicon (macOS arm64) use tensorflow-macos + tensorflow-metal (Apple's packages)
+tensorflow-macos = { version = ">=2.11.0,<2.17.0", markers = "sys_platform == 'darwin' and platform_machine == 'arm64'" }
+tensorflow-metal = { version = "*", markers = "sys_platform == 'darwin' and platform_machine == 'arm64'" }
 pandas = "^1.3.0"
 norbert = "^0.2.1"
 numpy = "<2.0.0"

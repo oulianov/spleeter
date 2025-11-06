@@ -5,6 +5,12 @@
 > :warning: [Spleeter 2.1.0](https://pypi.org/project/spleeter/) release introduces some breaking changes, including new CLI option naming for input, and the drop
 > of dedicated GPU package. Please read [CHANGELOG](CHANGELOG.md) for more details.
 
+## Run with uv
+
+```
+uv run spleeter separate -p spleeter:2stems -o output "file.mp3"
+```
+
 ## About
 
 **Spleeter** is [Deezer](https://www.deezer.com/) source separation library with pretrained models
@@ -12,9 +18,9 @@ written in [Python](https://www.python.org/) and uses [Tensorflow](https://tenso
 to train source separation model (assuming you have a dataset of isolated sources), and provides
 already trained state of the art model for performing various flavour of separation :
 
-* Vocals (singing voice) / accompaniment separation ([2 stems](https://github.com/deezer/spleeter/wiki/2.-Getting-started#using-2stems-model))
-* Vocals / drums / bass / other separation ([4 stems](https://github.com/deezer/spleeter/wiki/2.-Getting-started#using-4stems-model))
-* Vocals / drums / bass / piano / other separation ([5 stems](https://github.com/deezer/spleeter/wiki/2.-Getting-started#using-5stems-model))
+- Vocals (singing voice) / accompaniment separation ([2 stems](https://github.com/deezer/spleeter/wiki/2.-Getting-started#using-2stems-model))
+- Vocals / drums / bass / other separation ([4 stems](https://github.com/deezer/spleeter/wiki/2.-Getting-started#using-4stems-model))
+- Vocals / drums / bass / piano / other separation ([5 stems](https://github.com/deezer/spleeter/wiki/2.-Getting-started#using-5stems-model))
 
 2 stems and 4 stems models have [high performances](https://github.com/deezer/spleeter/wiki/Separation-Performances) on the [musdb](https://sigsep.github.io/datasets/musdb.html) dataset. **Spleeter** is also very fast as it can perform separation of audio files to 4 stems 100x faster than real-time when run on a GPU.
 
@@ -26,27 +32,27 @@ as well as directly in your own development pipeline as a [Python library](https
 
 Since it's been released, there are multiple forks exposing **Spleeter** through either a Guided User Interface (GUI) or a standalone free or paying website. Please note that we do not host, maintain or directly support any of these initiatives.
 
-That being said, many cool projects have been built on top of ours. Notably the porting to the *Ableton Live* ecosystem through the [Spleeter 4 Max](https://github.com/diracdeltas/spleeter4max#spleeter-for-max) project.
+That being said, many cool projects have been built on top of ours. Notably the porting to the _Ableton Live_ ecosystem through the [Spleeter 4 Max](https://github.com/diracdeltas/spleeter4max#spleeter-for-max) project.
 
 **Spleeter** pre-trained models have also been used by professionnal audio softwares. Here's a non-exhaustive list:
 
-* [iZotope](https://www.izotope.com/en/shop/rx-8-standard.html) in its *Music Rebalance* feature within **RX 8**
-* [SpectralLayers](https://new.steinberg.net/spectralayers/) in its *Unmix* feature in **SpectralLayers 7**
-* [Acon Digital](https://acondigital.com/products/acoustica-audio-editor/) within **Acoustica 7**
-* [VirtualDJ](https://www.virtualdj.com/stems/) in their stem isolation feature
-* [Algoriddim](https://www.algoriddim.com/apps) in their **NeuralMix** and **djayPRO** app suite
+- [iZotope](https://www.izotope.com/en/shop/rx-8-standard.html) in its _Music Rebalance_ feature within **RX 8**
+- [SpectralLayers](https://new.steinberg.net/spectralayers/) in its _Unmix_ feature in **SpectralLayers 7**
+- [Acon Digital](https://acondigital.com/products/acoustica-audio-editor/) within **Acoustica 7**
+- [VirtualDJ](https://www.virtualdj.com/stems/) in their stem isolation feature
+- [Algoriddim](https://www.algoriddim.com/apps) in their **NeuralMix** and **djayPRO** app suite
 
 🆕 **Spleeter** is a baseline in the ongoing [Music Demixing Challenge](https://www.aicrowd.com/challenges/music-demixing-challenge-ismir-2021)!
 
 ## Spleeter Pro (Commercial version)
 
-Check out our commercial version : [Spleeter Pro](https://www.deezer-techservices.com/solutions/spleeter/). Benefit from our expertise for precise audio separation, faster processing speeds, and dedicated professional support. 
+Check out our commercial version : [Spleeter Pro](https://www.deezer-techservices.com/solutions/spleeter/). Benefit from our expertise for precise audio separation, faster processing speeds, and dedicated professional support.
 
 ## Quick start
 
 Want to try it out but don't want to install anything ? We have set up a [Google Colab](https://colab.research.google.com/github/deezer/spleeter/blob/master/spleeter.ipynb).
 
-Ready to dig into it ? In a few lines you can install **Spleeter**  and separate the vocal and accompaniment parts from an example audio file.
+Ready to dig into it ? In a few lines you can install **Spleeter** and separate the vocal and accompaniment parts from an example audio file.
 You need first to install `ffmpeg` and `libsndfile`. It can be done on most platform using [Conda](https://github.com/deezer/spleeter/wiki/1.-Installation#using-conda):
 
 ```bash
@@ -86,10 +92,10 @@ poetry run pytest tests/
 
 ## Reference
 
-* Deezer Research - Source Separation Engine Story - deezer.io blog post:
-  * [English version](https://deezer.io/releasing-spleeter-deezer-r-d-source-separation-engine-2b88985e797e)
-  * [Japanese version](http://dzr.fm/splitterjp)
-* [Music Source Separation tool with pre-trained models / ISMIR2019 extended abstract](http://archives.ismir.net/ismir2019/latebreaking/000036.pdf)
+- Deezer Research - Source Separation Engine Story - deezer.io blog post:
+  - [English version](https://deezer.io/releasing-spleeter-deezer-r-d-source-separation-engine-2b88985e797e)
+  - [Japanese version](http://dzr.fm/splitterjp)
+- [Music Source Separation tool with pre-trained models / ISMIR2019 extended abstract](http://archives.ismir.net/ismir2019/latebreaking/000036.pdf)
 
 If you use **Spleeter** in your work, please cite:
 
@@ -123,7 +129,7 @@ If you plan to use **Spleeter** on copyrighted material, make sure you get prope
 
 ### Windows users
 
-   It appears that sometimes the shortcut command `spleeter` does not work properly on windows. This is a known issue that we will hopefully fix soon. In the meantime replace `spleeter separate` by `python -m spleeter separate` in command line and it should work.
+It appears that sometimes the shortcut command `spleeter` does not work properly on windows. This is a known issue that we will hopefully fix soon. In the meantime replace `spleeter separate` by `python -m spleeter separate` in command line and it should work.
 
 ## Contributing
 
