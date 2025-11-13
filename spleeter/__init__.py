@@ -24,4 +24,5 @@ class SpleeterError(Exception):
     pass
 
 
+from . import __main__
 from __main__ import *
