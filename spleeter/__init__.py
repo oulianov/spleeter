@@ -22,3 +22,6 @@ class SpleeterError(Exception):
     """Custom exception for Spleeter related error."""
 
     pass
+
+
+from __main__ import *
